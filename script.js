@@ -118,29 +118,55 @@ window.ethereum.on('chainChanged', () => {
 document.getElementById('connectButton').addEventListener('click', connectMetaMask);
 
 
-// Get Number
 async function getNumber() {
     try {
+        console.log("Calling get_number...");
         const number = await contract.get_number();
+        console.log("Fetched number:", number);
         document.getElementById('numberResult').textContent = `Number: ${number}`;
     } catch (error) {
-        console.error('Error getting number:', error);
-        alert('Failed to fetch number.');
+        console.error("Error fetching number:", error);
+        alert("Failed to fetch number.");
     }
 }
 
-// Get String
 async function getString() {
     try {
+        console.log("Calling get_string...");
         const string = await contract.get_string();
+        console.log("Fetched string:", string);
         document.getElementById('stringResult').textContent = `String: ${string}`;
     } catch (error) {
-        console.error('Error getting string:', error);
-        alert('Failed to fetch string.');
+        console.error("Error fetching string:", error);
+        alert("Failed to fetch string.");
     }
 }
+
+// Connect to Contract
+function connectContract() {
+    if (!signer) {
+        alert("Connect to MetaMask first.");
+        return;
+    }
+
+    try {
+        contract = new ethers.Contract(contractAddress, contractABI, signer);
+        document.getElementById('contractStatus').textContent = `Contract Status: Connected`;
+        document.getElementById('getNumberButton').disabled = false;
+        document.getElementById('getStringButton').disabled = false;
+        alert('Connected to Contract');
+    } catch (error) {
+        console.error('Error connecting to contract:', error);
+        alert('Failed to connect to contract.');
+    }
+}
+
 
 
 // Event listners for get Number and String 
 document.getElementById('getNumberButton').addEventListener('click', getNumber);
 document.getElementById('getStringButton').addEventListener('click', getString);
+
+
+// Event listner for connecting to contract
+document.getElementById('connectContractButton').addEventListener('click', connectContract);
