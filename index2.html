@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Contract Interaction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Contract Interaction</h1>
+        <!-- Connect Wallet Button -->
+        <button id="connectWalletBtn" onclick="connectWallet()">Connect to MetaMask</button>
+        <p id="walletAddress"></p>
+
+        <div class="input-group">
+            <label for="newNumber">Set Number:</label>
+            <input type="number" id="newNumber">
+            <button onclick="setNumber()">Set</button>
+        </div>
+        <div class="input-group">
+            <label for="newString">Set String:</label>
+            <input type="text" id="newString">
+            <button onclick="setString()">Set</button>
+        </div>
+        <div class="output-group">
+            <button onclick="getNumber()">Get Number</button>
+            <p id="numberResult">Number: <span></span></p>
+        </div>
+        <div class="output-group">
+            <button onclick="getString()">Get String</button>
+            <p id="stringResult">String: <span></span></p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
