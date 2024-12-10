@@ -161,12 +161,60 @@ function connectContract() {
     }
 }
 
-
-
 // Event listners for get Number and String 
 document.getElementById('getNumberButton').addEventListener('click', getNumber);
 document.getElementById('getStringButton').addEventListener('click', getString);
 
-
 // Event listner for connecting to contract
 document.getElementById('connectContractButton').addEventListener('click', connectContract);
+
+// sting and number
+// Set Number
+async function setNumber() {
+    if (!contract) {
+        alert("Connect to the contract first.");
+        return;
+    }
+
+    const numberInput = document.getElementById('setNumber').value;
+    if (!numberInput || isNaN(numberInput)) {
+        alert("Please enter a valid number.");
+        return;
+    }
+
+    try {
+        const tx = await contract.set_number(numberInput); // Call the smart contract function
+        await tx.wait(); // Wait for the transaction to be mined
+        alert(`Number set successfully to ${numberInput}!`);
+    } catch (error) {
+        console.error("Error setting number:", error);
+        alert("Failed to set number.");
+    }
+}
+
+// Set String
+async function setString() {
+    if (!contract) {
+        alert("Connect to the contract first.");
+        return;
+    }
+
+    const stringInput = document.getElementById('setString').value;
+    if (!stringInput) {
+        alert("Please enter a valid string.");
+        return;
+    }
+
+    try {
+        const tx = await contract.set_string(stringInput); // Call the smart contract function
+        await tx.wait(); // Wait for the transaction to be mined
+        alert(`String set successfully to "${stringInput}"!`);
+    } catch (error) {
+        console.error("Error setting string:", error);
+        alert("Failed to set string.");
+    }
+}
+
+// Add Event Listeners for Setting Number and String
+document.getElementById('setNumberButton').addEventListener('click', setNumber);
+document.getElementById('setStringButton').addEventListener('click', setString);

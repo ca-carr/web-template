@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaMask Connection</title>
+</head>
+<body>
+    <h1>MetaMask Interaction</h1>
+    <button id="connectButton">Connect to MetaMask</button>
+    <p id="status">Status: Disconnected</p>
+    <p id="account">Account: none</p>
+    <p id="balance">Balance: none</p>
+    <p id="network">Network: none</p>
+    <p>
+        To disconnect:
+        <ol>
+            <li>Click on MetaMask</li>
+            <li>Click the connected globe symbol"</li>
+            <li>Select "Disconnect"</li>
+        </ol>
+    </p>
+
+    <h2>Smart Contract Interaction</h2>
+    <div>
+
+        <button id="connectContractButton">Connect to Contract</button>
+        <p id="contractStatus">Contract Status: Not Connected</p>
+    </div>
+
+
+    <div>
+        <label for="setNumber">Set Number:</label>
+        <input type="number" id="setNumber" placeholder="Enter a number">
+        <button id="setNumberButton">Set Number</button>
+    </div>
+    <div>
+        <label for="setString">Set String:</label>
+        <input type="text" id="setString" placeholder="Enter a string">
+        <button id="setStringButton">Set String</button>
+    </div>
+    <div>
+        <button id="getNumberButton">Get Number</button>
+        <p id="numberResult">Number: N/A</p>
+    </div>
+    <div>
+        <button id="getStringButton">Get String</button>
+        <p id="stringResult">String: N/A</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
