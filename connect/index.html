@@ -3,23 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metamask Interaction</title>
+    <title>Wallet Connection</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+    <script src="script.js"></script>
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col items-center bg-blue-500 justify-center p-6">
 
-    <!-- Title -->
-    <h1 class="text-3xl font-bold mb-6 text-3xl text-blue-800">MetaMask Interaction</h1>
 
-    <!-- MetaMask Status -->
-    <div class="bg-white shadow-md rounded-lg p-6 mb-6 w-full max-w-lg">
-        <button id="connectButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
-            Connect to MetaMask
+    <h1 class="text-3xl font-bold mb-6 text-3xl text-orange-500">Wallet Connection</h1>
+
+    <!-- MetaMask connection -->
+    <div class="bg-white shadow-md rounded-lg p-8 mb-6 w-full max-w-sm">
+        <button id="connectButton" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded w-full">
+            Connect to Wallet
         </button>
-        <p id="status" class="text-gray-700">Status: <span class="font-bold font-semibold">Disconnected</span></p>
-        <p id="account" class="text-gray-700">Account: <span class="font-bold">None</span></p>
-        <p id="balance" class="text-gray-700">Balance: <span class="font-bold">None</span></p>
-        <p id="network" class="text-gray-700">Network: <span class="font-bold">None</span></p>
+    </div>
+
+    <div class="bg-white rounded-lg font-sans shadow-md p-8 w-full max-w-sm">
+        <p id="status" > Status: <span id="statusText" class="font-bold">Disconnected</span></p>
+    </div>
+
+</body>
+</html>
+
+<!--
+<div class="bg-white rounded-lg font-sans shadow-md p-8 w-full max-w-sm">
+    <p id="status" > Status: <span class="font-bold">Disconnected</span></p>
+    <p id="account"> Account: <span class="font-bold">None</span></p>
+    <p id="balance"> Balance: <span class="font-bold">None</span></p>
+    <p id="network"> Network: <span class="font-bold">None</span></p>
+</div>
+-->
+
+<!--
+    <div>
         <p class="text-sm text-gray-500 mt-4">
             To disconnect:
             <ol class="list-decimal list-inside">
@@ -29,57 +47,4 @@
             </ol>
         </p>
     </div>
-
-    <!-- Smart Contract Status -->
-    <div class="bg-white shadow-md rounded-lg p-6 mb-6 w-full max-w-lg">
-        <button id="connectContractButton" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full">
-            Connect to Contract
-        </button>
-        <p id="contractStatus" class="mt-4 text-gray-700 font-medium">Contract Status: <span class="font-bold">Not Connected</span></p>
-    </div>
-
-    <!-- Smart Contract Interaction -->
-    <h2 class="text-2xl font-semibold mb-4 text-blue-600">Smart Contract Interaction</h2>
-
-    <div class="bg-white shadow-md rounded-lg p-6 mb-6 w-full max-w-lg space-y-4">
-        <!-- Set Number -->
-        <div class="flex flex-col">
-            <label for="setNumber" class="text-gray-700 font-medium mb-2">Set Number:</label>
-            <input type="number" id="setNumber" placeholder="Enter a number" 
-                class="border rounded p-2 w-full mb-2 focus:ring-2 focus:ring-blue-400 focus:outline-none">
-            <button id="setNumberButton" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                Set Number
-            </button>
-        </div>
-
-        <!-- Set String -->
-        <div class="flex flex-col">
-            <label for="setString" class="text-gray-700 font-medium mb-2">Set String:</label>
-            <input type="text" id="setString" placeholder="Enter a string" 
-                class="border rounded p-2 w-full mb-2 focus:ring-2 focus:ring-blue-400 focus:outline-none">
-            <button id="setStringButton" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                Set String
-            </button>
-        </div>
-
-        <!-- Get Number -->
-        <div class="flex flex-col">
-            <button id="getNumberButton" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mb-2">
-                Get Number
-            </button>
-            <p id="numberResult" class="text-gray-700 font-medium">Number: <span class="font-bold">N/A</span></p>
-        </div>
-
-        <!-- Get String -->
-        <div class="flex flex-col">
-            <button id="getStringButton" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mb-2">
-                Get String
-            </button>
-            <p id="stringResult" class="text-gray-700 font-medium">String: <span class="font-bold">N/A</span></p>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+-->
