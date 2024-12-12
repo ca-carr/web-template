@@ -5,7 +5,7 @@ let connectedAccount = null;
 if (typeof window.ethereum !== 'undefined') {
     console.log('Wallet is installed');
 } else {
-    alert('No wallet installed');
+    alert('No wallet is installed');
 }
 
 // function to connect to wallet
@@ -30,6 +30,15 @@ async function connectWallet() {
         const statusElement = document.getElementById('statusText');
         if (statusElement) {
             statusElement.textContent = 'Connected.';
+        }
+
+        // Fetch the latest block number
+        const blockNum = await provider.getBlockNumber();
+        const blockElement = document.getElementById('blockNumber');
+        if (blockElement) {
+            blockElement.textContent = `Block number: ${blockNum}`;
+        } else {
+            blockElement.textContent = `Block 0: ${blockNum}`;
         }
 
         console.log('Connected to account:', connectedAccount);
